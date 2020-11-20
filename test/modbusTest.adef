@@ -1,0 +1,17 @@
+executables:
+{
+	client = (modbusTest)
+}
+
+processes:
+{
+	run:
+	{
+		(client)
+	}
+}
+
+bindings:
+{
+	client.modbusTest.modbus -> modbuslib.modbus
+}

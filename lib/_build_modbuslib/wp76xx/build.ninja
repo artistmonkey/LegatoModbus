@@ -1,0 +1,167 @@
+# Build script for application 'modbuslib'
+
+# == Auto-generated file.  Do not edit. ==
+
+builddir =./_build_modbuslib/wp76xx
+
+cFlags = -I ./_build_modbuslib/wp76xx -I/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/interfaces -I/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include -I/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/interfaces/modemServices -I/mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib
+
+cxxFlags = -I ./_build_modbuslib/wp76xx -I/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/interfaces -I/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include -I/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/interfaces/modemServices -I/mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib
+
+ldFlags =
+
+target = wp76xx
+
+ifgenFlags =  --import-dir /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/interfaces --import-dir /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include --import-dir /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/interfaces/modemServices --import-dir /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib
+
+rule CompileC
+  description = Compiling C source
+  depfile = $out.d
+  command =  /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc --sysroot=/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/armv7a-neon-poky-linux-gnueabi -MMD -MF $out.d -c $in -o $out -DLE_FILENAME=`basename $in` -Wall -fPIC -Werror -fvisibility=hidden -DMK_TOOLS_BUILD  -DLEGATO_EMBEDDED $cFlags
+
+rule CompileCxx
+  description = Compiling C++ source
+  depfile = $out.d
+  command =  /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++ --sysroot=/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/armv7a-neon-poky-linux-gnueabi -MMD -MF $out.d -c $in -o $out -DLE_FILENAME=`basename $in` -Wall -fPIC -Werror -fvisibility=hidden  -DMK_TOOLS_BUILD  -DLEGATO_EMBEDDED $cxxFlags
+
+rule LinkCLib
+  description = Linking C library
+  command =  /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc --sysroot=/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/armv7a-neon-poky-linux-gnueabi -shared -o $out $in $ldFlags
+
+rule LinkCxxLib
+  description = Linking C++ library
+  command =  /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++ --sysroot=/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/armv7a-neon-poky-linux-gnueabi -shared -o $out $in $ldFlags
+
+rule LinkCExe
+  description = Linking C executable
+  command =  /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc --sysroot=/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/armv7a-neon-poky-linux-gnueabi -fPIE -pie -o $out $in $ldFlags
+
+rule LinkCxxExe
+  description = Linking C++ executable
+  command =  /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++ --sysroot=/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/armv7a-neon-poky-linux-gnueabi -fPIE -pie -o $out $in $ldFlags
+
+rule CompileJava
+  description = Compiling Java source
+  command = javac -cp $classPath -d `dirname $out` $in && touch $out
+
+rule MakeJar
+  description = Making JAR file
+  command = INDIR=`dirname $in`; find $$INDIR -name '*.class' -printf "-C $$INDIR\n%P\n"|xargs jar -cf $out
+
+rule MakeKernelModule
+  description = Build kernel driver module
+  depfile = $out.d
+  command = make -C $in
+
+rule BuildExternal
+  description = Running external build step
+  command = cd $builddir/$workingdir && $
+            export CFLAGS="--sysroot=/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/armv7a-neon-poky-linux-gnueabi $cFlags" $
+            CXXFLAGS="--sysroot=/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/armv7a-neon-poky-linux-gnueabi $cxxFlags" $
+            LDFLAGS="--sysroot=/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/armv7a-neon-poky-linux-gnueabi $ldFlags" $
+            PATH="$${LEGATO_ROOT}/bin:/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi:/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/x86_64-pokysdk-linux/usr/bin:/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/x86_64-pokysdk-linux/bin:/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/wp76-toolchain/sysroots/x86_64-pokysdk-linux/sbin:$$PATH" $
+            && $
+            $externalCommand
+
+rule GenInterfaceCode
+  description = Generating IPC interface code
+  command = ifgen --output-dir $outputDir $ifgenFlags $in
+
+rule GenPyApiCExtension
+  description = Generating Python API C Extension
+  command = cextgenerator.py $in -o $workDir > /dev/null
+rule CopyFile
+  description = Copying file
+  command = cp -d -f -T $in $out
+
+rule RegenNinjaScript
+  description = Regenerating build script
+  generator = 1
+  command = mkapp --dont-run-ninja "-t" "wp76xx" "modbuslib.adef" "-i" "/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/interfaces/modemServices"
+
+rule BundleFile
+  description = Bundling file
+  command = legato-install -m $modeFlags $in $out
+
+rule MakeAppInfoProperties
+  description = Creating info.properties
+  command = rm -f $out && $
+            md5=$$( ( cd $workingDir/staging && $
+                      find -P -print0 |LC_ALL=C sort -z && $
+                      find -P -type f -print0 |LC_ALL=C sort -z |xargs -0 md5sum && $
+                      find -P -type l -print0 |LC_ALL=C sort -z |xargs -0 -r -n 1 readlink $
+                    ) | md5sum) && $
+            md5=$${md5%% *} && $
+            ( echo "app.name=$name" && $
+              echo "app.md5=$$md5" && $
+              echo "app.version=$version" && $
+              echo "legato.version=`cat $$LEGATO_ROOT/version`" $
+            ) > $out
+
+rule PackApp
+  description = Packaging app
+  command = $
+            mtime=`stat -c %Y $adefPath` && $
+            find $workingDir/staging -exec touch --no-dereference --date=@$$mtime {} \; && $
+            (cd $workingDir/staging && find . -print0 | LC_ALL=C sort -z |tar --no-recursion --null -T - -cjf - ) > $workingDir/$name.$target && $
+            tarballSize=`stat -c '%s' $workingDir/$name.$target` && $
+            md5=`grep '^app.md5=' $in | sed 's/^app.md5=//'` && $
+            ( printf '{\n' && $
+              printf '"command":"updateApp",\n' && $
+              printf '"name":"$name",\n' && $
+              printf '"version":"$version",\n' && $
+              printf '"md5":"%s",\n' "$$md5" && $
+              printf '"size":%s\n' "$$tarballSize" && $
+              printf '}' && $
+              cat $workingDir/$name.$target $
+            ) > $out
+
+rule BinPackApp
+  description = Packaging app for distribution.
+  command = cp -r $stagingDir/* $workingDir/ && $
+            rm $workingDir/info.properties $workingDir/root.cfg && $
+            mtime=`stat -c %Y $adefPath` && $
+            find $workingDir -exec touch  --no-dereference --date=@$$mtime {} \; && $
+            (cd $workingDir/ && find . -print0 |LC_ALL=C sort -z  |tar --no-recursion --null -T - -cjf - ) > $out
+
+build $builddir/api/215f8778749676f72b6e950fdd548825/server/modbus_server.o: CompileC $builddir/api/215f8778749676f72b6e950fdd548825/server/modbus_server.c | $builddir/api/215f8778749676f72b6e950fdd548825/server/modbus_messages.h $builddir/api/215f8778749676f72b6e950fdd548825/server/modbus_server.h
+  cFlags = $cFlags
+
+build $builddir/api/215f8778749676f72b6e950fdd548825/server/modbus_server.c $builddir/api/215f8778749676f72b6e950fdd548825/server/modbus_server.h $builddir/api/215f8778749676f72b6e950fdd548825/server/modbus_messages.h: GenInterfaceCode /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbus.api |
+  ifgenFlags = --gen-server --gen-server-interface --gen-local --name-prefix modbus $ifgenFlags
+  outputDir = $builddir/api/215f8778749676f72b6e950fdd548825/server
+
+build _build_modbuslib/wp76xx/staging/read-only/lib/libComponent_modbuslib.so: LinkCLib $builddir/component/5fba32b5ba40b47338f7e8e5b6cf2309/obj/4f80faa973a16fc2925d4e1d383bed46.o $builddir/api/215f8778749676f72b6e950fdd548825/server/modbus_server.o $builddir/component/5fba32b5ba40b47338f7e8e5b6cf2309/obj/_componentMain.c.o | /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/build/wp76xx/framework/lib/liblegato.so
+  ldFlags =  -L_build_modbuslib/wp76xx/staging/read-only/lib -Wl,--enable-new-dtags,-rpath="\$$ORIGIN/../lib" "-L$$LEGATO_BUILD/framework/lib" -llegato -lpthread -lrt -lm
+
+build $builddir/component/5fba32b5ba40b47338f7e8e5b6cf2309/obj/4f80faa973a16fc2925d4e1d383bed46.o: CompileC /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbuslib/modbuslib.c || $builddir/api/215f8778749676f72b6e950fdd548825/server/modbus_server.h $builddir/api/215f8778749676f72b6e950fdd548825/server/modbus_messages.h 
+  cFlags = $cFlags -I$builddir/component/5fba32b5ba40b47338f7e8e5b6cf2309/src -I$builddir/api/215f8778749676f72b6e950fdd548825/server -DLE_COMPONENT_NAME=modbuslib -DLE_LOG_SESSION=modbuslib_LogSession  -DLE_LOG_LEVEL_FILTER_PTR=modbuslib_LogLevelFilterPtr  "-DCOMPONENT_INIT=LE_CI_LINKAGE LE_SHARED void _modbuslib_COMPONENT_INIT()"
+
+build $builddir/component/5fba32b5ba40b47338f7e8e5b6cf2309/obj/_componentMain.c.o: CompileC $builddir/component/5fba32b5ba40b47338f7e8e5b6cf2309/src/_componentMain.c
+  cFlags = $cFlags -I$builddir/component/5fba32b5ba40b47338f7e8e5b6cf2309/src -I$builddir/api/215f8778749676f72b6e950fdd548825/server -DLE_COMPONENT_NAME=modbuslib -DLE_LOG_SESSION=modbuslib_LogSession  -DLE_LOG_LEVEL_FILTER_PTR=modbuslib_LogLevelFilterPtr  "-DCOMPONENT_INIT=LE_CI_LINKAGE LE_SHARED void _modbuslib_COMPONENT_INIT()"
+
+build $builddir/app/modbuslib/obj/modbus/_main.c.o: CompileC _build_modbuslib/wp76xx/app/modbuslib/src/modbus/_main.c
+  cFlags = $cFlags -DLE_COMPONENT_NAME=modbus_exe -DLE_LOG_SESSION=modbus_exe_LogSession -DLE_LOG_LEVEL_FILTER_PTR=modbus_exe_LogLevelFilterPtr 
+
+build $builddir/app/modbuslib/obj/modbus/modbus: LinkCExe $builddir/app/modbuslib/obj/modbus/_main.c.o | _build_modbuslib/wp76xx/staging/read-only/lib/libComponent_modbuslib.so /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/build/wp76xx/framework/lib/liblegato.so /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/build/$target/framework/lib/liblegato.so
+  ldFlags = -rdynamic -Wl,--enable-new-dtags,-rpath="\$$ORIGIN/../lib" -L_build_modbuslib/wp76xx/staging/read-only/lib "-L_build_modbuslib/wp76xx/staging/read-only/lib" -lComponent_modbuslib "-L$$LEGATO_BUILD/framework/lib" -llegato -lpthread -lrt -ldl -lm $ldFlags
+
+build $builddir/app/modbuslib/staging/read-only/lib/libComponent_modbuslib.so : BundleFile _build_modbuslib/wp76xx/staging/read-only/lib/libComponent_modbuslib.so
+  modeFlags = u+rw+x,g+r+x,o+x+r-w
+
+build $builddir/app/modbuslib/staging/read-only/bin/modbus : BundleFile $builddir/app/modbuslib/obj/modbus/modbus
+  modeFlags = u+rw+x,g+r+x,o+x+r-w
+
+build $builddir/app/modbuslib/staging/info.properties : MakeAppInfoProperties | $builddir/app/modbuslib/staging/read-only/lib/libComponent_modbuslib.so $builddir/app/modbuslib/staging/read-only/bin/modbus $builddir/app/modbuslib/staging/root.cfg
+  name = modbuslib
+  version = 
+  workingDir = $builddir/app/modbuslib
+
+build modbuslib.$target.update: PackApp $builddir/app/modbuslib/staging/info.properties
+  name = modbuslib
+  adefPath = /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbuslib.adef
+  version = 
+  workingDir = $builddir/app/modbuslib
+
+build _build_modbuslib/wp76xx/build.ninja: RegenNinjaScript | /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbus.api /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbuslib/Component.cdef
+

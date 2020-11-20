@@ -1,0 +1,12 @@
+sources:
+{
+	modbuslib.c
+}
+
+provides:
+{
+	api:
+	{
+		modbus = modbus.api
+	}
+}

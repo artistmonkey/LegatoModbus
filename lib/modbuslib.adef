@@ -1,0 +1,17 @@
+executables:
+{
+	modbus = (modbuslib)
+}
+
+processes:
+{
+	run:
+	{
+		(modbus)
+	}
+}
+
+extern:
+{
+	modbus = modbus.modbuslib.modbus
+}

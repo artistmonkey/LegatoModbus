@@ -1,0 +1,37 @@
+_build_modbuslib/wp76xx/component/5fba32b5ba40b47338f7e8e5b6cf2309/obj/4f80faa973a16fc2925d4e1d383bed46.o: \
+ /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbuslib/modbuslib.c \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/legato.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_build_config.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_basics.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_doublyLinkedList.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_singlyLinkedList.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_utf8.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_log.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_mem.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_mutex.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_clock.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_semaphore.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_safeRef.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_thread.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_eventLoop.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_fdMonitor.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_hashmap.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_signals.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_args.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_timer.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_messaging.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_test.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_pack.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_path.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_pathIter.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_hex.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_dir.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_fileLock.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_json.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_tty.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_atomFile.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_crc.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_fs.h \
+ /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_rand.h \
+ _build_modbuslib/wp76xx/component/5fba32b5ba40b47338f7e8e5b6cf2309/src/interfaces.h \
+ _build_modbuslib/wp76xx/api/215f8778749676f72b6e950fdd548825/server/modbus_server.h

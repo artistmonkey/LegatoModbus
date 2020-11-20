@@ -1,0 +1,6 @@
+mkapp
+-t
+wp76xx
+modbusTest.adef
+-i
+/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/interfaces/modemServices
