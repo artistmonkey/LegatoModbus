@@ -20,7 +20,6 @@ WP76XX_TOOLCHAIN_PREFIX=arm-poky-linux-gnueabi-
 LEAF_SHARED_DIR=/usr/share/leaf/packages/leaf-plugins_1.0/shell
 LEAF_SYSTEM_ROOTS=/usr/share/leaf/packages:/usr/local/share/leaf/packages:~/.local/share/leaf/packages
 LEGATO_TARGET=wp76xx
-MOTD_SHOWN=update-motd
 HOME=/home/artistmonkey
 WP76XX_DEVICE_IMAGES=/mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-image
 LANG=C.UTF-8

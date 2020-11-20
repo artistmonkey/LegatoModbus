@@ -15,7 +15,7 @@ FUNCTION uint8 Connect();
 FUNCTION uint8 Disconnect();
 
 FUNCTION uint8 Read_Bit
-(
+(					
 	uint16 address IN,					///< Readable/Writable bit address
 	uint8 dest[128]	OUT					///< value place after read
 );

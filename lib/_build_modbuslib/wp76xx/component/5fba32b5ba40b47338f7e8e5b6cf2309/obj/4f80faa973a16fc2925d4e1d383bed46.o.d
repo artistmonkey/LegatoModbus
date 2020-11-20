@@ -34,4 +34,9 @@ _build_modbuslib/wp76xx/component/5fba32b5ba40b47338f7e8e5b6cf2309/obj/4f80faa97
  /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_fs.h \
  /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_rand.h \
  _build_modbuslib/wp76xx/component/5fba32b5ba40b47338f7e8e5b6cf2309/src/interfaces.h \
- _build_modbuslib/wp76xx/api/215f8778749676f72b6e950fdd548825/server/modbus_server.h
+ _build_modbuslib/wp76xx/api/215f8778749676f72b6e950fdd548825/server/modbus_server.h \
+ /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbuslib/libmodbus/modbus.h \
+ /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbuslib/libmodbus/modbus-version.h \
+ /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbuslib/libmodbus/modbus-tcp.h \
+ /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbuslib/libmodbus/modbus.h \
+ /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbuslib/libmodbus/modbus-rtu.h

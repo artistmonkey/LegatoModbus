@@ -1,6 +1,10 @@
 sources:
 {
 	modbuslib.c
+	libmodbus/modbus.c
+	libmodbus/modbus-data.c
+	libmodbus/modbus-rtu.c
+	libmodbus/modbus-tcp.c
 }
 
 provides:
