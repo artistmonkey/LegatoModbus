@@ -5,11 +5,28 @@ executables:
 
 processes:
 {
+	envVars:
+	{
+		LE_LOG_LEVEL = DEBUG
+	}
 	run:
 	{
 		(modbus)
 	}
 }
+
+requires:
+{
+    device:
+    {        
+        // Get read and write access to the UART1 port.
+        [rw]    /dev/ttyUSB0   /dev/ttyUSB0
+    }
+}
+
+version: 1.0
+sandboxed: false
+start: auto
 
 extern:
 {

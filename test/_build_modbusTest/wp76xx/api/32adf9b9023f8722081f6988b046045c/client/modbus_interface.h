@@ -103,7 +103,7 @@ void modbus_DisconnectService
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_SetParameter
+int8_t modbus_SetParameter
 (
     const char* LE_NONNULL name,
         ///< [IN] parameter name
@@ -115,7 +115,7 @@ uint8_t modbus_SetParameter
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_GetParameter
+int8_t modbus_GetParameter
 (
     const char* LE_NONNULL name,
         ///< [IN] parameter name
@@ -129,7 +129,7 @@ uint8_t modbus_GetParameter
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Connect
+int8_t modbus_Connect
 (
     void
 );
@@ -138,7 +138,7 @@ uint8_t modbus_Connect
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Disconnect
+int8_t modbus_Disconnect
 (
     void
 );
@@ -147,7 +147,7 @@ uint8_t modbus_Disconnect
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Read_Bit
+int8_t modbus_Read_Bit
 (
     uint16_t address,
         ///< [IN] Readable/Writable bit address
@@ -161,7 +161,7 @@ uint8_t modbus_Read_Bit
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Read_InputBit
+int8_t modbus_Read_InputBit
 (
     uint16_t address,
         ///< [IN] Read only bit address
@@ -175,7 +175,7 @@ uint8_t modbus_Read_InputBit
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Read_Word
+int8_t modbus_Read_Word
 (
     uint16_t address,
         ///< [IN] Readable/Writable word address
@@ -189,7 +189,7 @@ uint8_t modbus_Read_Word
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Read_InputWord
+int8_t modbus_Read_InputWord
 (
     uint16_t address,
         ///< [IN] Read only word address
@@ -203,7 +203,7 @@ uint8_t modbus_Read_InputWord
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Write_Bit
+int8_t modbus_Write_Bit
 (
     uint16_t address,
         ///< [IN] Readable/Writable bit address
@@ -217,7 +217,7 @@ uint8_t modbus_Write_Bit
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Write_Word
+int8_t modbus_Write_Word
 (
     uint16_t address,
         ///< [IN] Readable/Writable word address

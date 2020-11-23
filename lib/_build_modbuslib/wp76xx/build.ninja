@@ -166,13 +166,13 @@ build $builddir/app/modbuslib/staging/read-only/bin/modbus : BundleFile $builddi
 
 build $builddir/app/modbuslib/staging/info.properties : MakeAppInfoProperties | $builddir/app/modbuslib/staging/read-only/lib/libComponent_modbuslib.so $builddir/app/modbuslib/staging/read-only/bin/modbus $builddir/app/modbuslib/staging/root.cfg
   name = modbuslib
-  version = 
+  version = 1.0
   workingDir = $builddir/app/modbuslib
 
 build modbuslib.$target.update: PackApp $builddir/app/modbuslib/staging/info.properties
   name = modbuslib
   adefPath = /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbuslib.adef
-  version = 
+  version = 1.0
   workingDir = $builddir/app/modbuslib
 
 build _build_modbuslib/wp76xx/build.ninja: RegenNinjaScript | /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbus.api /mnt/d/linux/LEGATO/WorkSpace/LegatoModbus/lib/modbuslib/Component.cdef

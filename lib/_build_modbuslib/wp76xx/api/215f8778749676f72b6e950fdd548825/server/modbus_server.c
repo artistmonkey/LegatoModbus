@@ -354,7 +354,7 @@ static void Handle_modbus_SetParameter
     // Define storage for output parameters
 
     // Call the function
-    uint8_t _result;
+    int8_t _result;
     _result  = modbus_SetParameter ( 
         name, 
         value );
@@ -364,7 +364,7 @@ static void Handle_modbus_SetParameter
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Pack the result first
-    LE_ASSERT(le_pack_PackUint8( &_msgBufPtr, &_msgBufSize, _result ));
+    LE_ASSERT(le_pack_PackInt8( &_msgBufPtr, &_msgBufSize, _result ));
 
     // Pack any "out" parameters
 
@@ -445,7 +445,7 @@ static void Handle_modbus_GetParameter
     }
 
     // Call the function
-    uint8_t _result;
+    int8_t _result;
     _result  = modbus_GetParameter ( 
         name, 
         value, 
@@ -456,7 +456,7 @@ static void Handle_modbus_GetParameter
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Pack the result first
-    LE_ASSERT(le_pack_PackUint8( &_msgBufPtr, &_msgBufSize, _result ));
+    LE_ASSERT(le_pack_PackInt8( &_msgBufPtr, &_msgBufSize, _result ));
 
     // Pack any "out" parameters
     if (value)
@@ -501,7 +501,7 @@ static void Handle_modbus_Connect
     // Define storage for output parameters
 
     // Call the function
-    uint8_t _result;
+    int8_t _result;
     _result  = modbus_Connect (  );
 
     // Re-use the message buffer for the response
@@ -509,7 +509,7 @@ static void Handle_modbus_Connect
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Pack the result first
-    LE_ASSERT(le_pack_PackUint8( &_msgBufPtr, &_msgBufSize, _result ));
+    LE_ASSERT(le_pack_PackInt8( &_msgBufPtr, &_msgBufSize, _result ));
 
     // Pack any "out" parameters
 
@@ -546,7 +546,7 @@ static void Handle_modbus_Disconnect
     // Define storage for output parameters
 
     // Call the function
-    uint8_t _result;
+    int8_t _result;
     _result  = modbus_Disconnect (  );
 
     // Re-use the message buffer for the response
@@ -554,7 +554,7 @@ static void Handle_modbus_Disconnect
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Pack the result first
-    LE_ASSERT(le_pack_PackUint8( &_msgBufPtr, &_msgBufSize, _result ));
+    LE_ASSERT(le_pack_PackInt8( &_msgBufPtr, &_msgBufSize, _result ));
 
     // Pack any "out" parameters
 
@@ -620,7 +620,7 @@ static void Handle_modbus_Read_Bit
     }
 
     // Call the function
-    uint8_t _result;
+    int8_t _result;
     _result  = modbus_Read_Bit ( 
         address, 
         destPtr, 
@@ -631,7 +631,7 @@ static void Handle_modbus_Read_Bit
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Pack the result first
-    LE_ASSERT(le_pack_PackUint8( &_msgBufPtr, &_msgBufSize, _result ));
+    LE_ASSERT(le_pack_PackInt8( &_msgBufPtr, &_msgBufSize, _result ));
 
     // Pack any "out" parameters
     if (destPtr)
@@ -709,7 +709,7 @@ static void Handle_modbus_Read_InputBit
     }
 
     // Call the function
-    uint8_t _result;
+    int8_t _result;
     _result  = modbus_Read_InputBit ( 
         address, 
         destPtr, 
@@ -720,7 +720,7 @@ static void Handle_modbus_Read_InputBit
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Pack the result first
-    LE_ASSERT(le_pack_PackUint8( &_msgBufPtr, &_msgBufSize, _result ));
+    LE_ASSERT(le_pack_PackInt8( &_msgBufPtr, &_msgBufSize, _result ));
 
     // Pack any "out" parameters
     if (destPtr)
@@ -798,7 +798,7 @@ static void Handle_modbus_Read_Word
     }
 
     // Call the function
-    uint8_t _result;
+    int8_t _result;
     _result  = modbus_Read_Word ( 
         address, 
         destPtr, 
@@ -809,7 +809,7 @@ static void Handle_modbus_Read_Word
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Pack the result first
-    LE_ASSERT(le_pack_PackUint8( &_msgBufPtr, &_msgBufSize, _result ));
+    LE_ASSERT(le_pack_PackInt8( &_msgBufPtr, &_msgBufSize, _result ));
 
     // Pack any "out" parameters
     if (destPtr)
@@ -887,7 +887,7 @@ static void Handle_modbus_Read_InputWord
     }
 
     // Call the function
-    uint8_t _result;
+    int8_t _result;
     _result  = modbus_Read_InputWord ( 
         address, 
         destPtr, 
@@ -898,7 +898,7 @@ static void Handle_modbus_Read_InputWord
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Pack the result first
-    LE_ASSERT(le_pack_PackUint8( &_msgBufPtr, &_msgBufSize, _result ));
+    LE_ASSERT(le_pack_PackInt8( &_msgBufPtr, &_msgBufSize, _result ));
 
     // Pack any "out" parameters
     if (destPtr)
@@ -965,7 +965,7 @@ static void Handle_modbus_Write_Bit
     // Define storage for output parameters
 
     // Call the function
-    uint8_t _result;
+    int8_t _result;
     _result  = modbus_Write_Bit ( 
         address, 
         destPtr, 
@@ -976,7 +976,7 @@ static void Handle_modbus_Write_Bit
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Pack the result first
-    LE_ASSERT(le_pack_PackUint8( &_msgBufPtr, &_msgBufSize, _result ));
+    LE_ASSERT(le_pack_PackInt8( &_msgBufPtr, &_msgBufSize, _result ));
 
     // Pack any "out" parameters
 
@@ -1034,7 +1034,7 @@ static void Handle_modbus_Write_Word
     // Define storage for output parameters
 
     // Call the function
-    uint8_t _result;
+    int8_t _result;
     _result  = modbus_Write_Word ( 
         address, 
         destPtr, 
@@ -1045,7 +1045,7 @@ static void Handle_modbus_Write_Word
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Pack the result first
-    LE_ASSERT(le_pack_PackUint8( &_msgBufPtr, &_msgBufSize, _result ));
+    LE_ASSERT(le_pack_PackInt8( &_msgBufPtr, &_msgBufSize, _result ));
 
     // Pack any "out" parameters
 

@@ -140,19 +140,19 @@ build $builddir/component/ba44ab37769e500cbe4c98d8aee4e31e/obj/050673eac17bc1a80
 build $builddir/component/ba44ab37769e500cbe4c98d8aee4e31e/obj/_componentMain.c.o: CompileC $builddir/component/ba44ab37769e500cbe4c98d8aee4e31e/src/_componentMain.c
   cFlags = $cFlags -I$builddir/component/ba44ab37769e500cbe4c98d8aee4e31e/src -I$builddir/api/32adf9b9023f8722081f6988b046045c/client -DLE_COMPONENT_NAME=modbusTest -DLE_LOG_SESSION=modbusTest_LogSession  -DLE_LOG_LEVEL_FILTER_PTR=modbusTest_LogLevelFilterPtr  "-DCOMPONENT_INIT=LE_CI_LINKAGE LE_SHARED void _modbusTest_COMPONENT_INIT()"
 
-build $builddir/app/modbusTest/obj/client/_main.c.o: CompileC _build_modbusTest/wp76xx/app/modbusTest/src/client/_main.c
-  cFlags = $cFlags -DLE_COMPONENT_NAME=client_exe -DLE_LOG_SESSION=client_exe_LogSession -DLE_LOG_LEVEL_FILTER_PTR=client_exe_LogLevelFilterPtr 
+build $builddir/app/modbusTest/obj/test/_main.c.o: CompileC _build_modbusTest/wp76xx/app/modbusTest/src/test/_main.c
+  cFlags = $cFlags -DLE_COMPONENT_NAME=test_exe -DLE_LOG_SESSION=test_exe_LogSession -DLE_LOG_LEVEL_FILTER_PTR=test_exe_LogLevelFilterPtr 
 
-build $builddir/app/modbusTest/obj/client/client: LinkCExe $builddir/app/modbusTest/obj/client/_main.c.o | _build_modbusTest/wp76xx/staging/read-only/lib/libComponent_modbusTest.so /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/build/wp76xx/framework/lib/liblegato.so /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/build/$target/framework/lib/liblegato.so
+build $builddir/app/modbusTest/obj/test/test: LinkCExe $builddir/app/modbusTest/obj/test/_main.c.o | _build_modbusTest/wp76xx/staging/read-only/lib/libComponent_modbusTest.so /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/build/wp76xx/framework/lib/liblegato.so /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/build/$target/framework/lib/liblegato.so
   ldFlags = -rdynamic -Wl,--enable-new-dtags,-rpath="\$$ORIGIN/../lib" -L_build_modbusTest/wp76xx/staging/read-only/lib "-L_build_modbusTest/wp76xx/staging/read-only/lib" -lComponent_modbusTest "-L$$LEGATO_BUILD/framework/lib" -llegato -lpthread -lrt -ldl -lm $ldFlags
 
 build $builddir/app/modbusTest/staging/read-only/lib/libComponent_modbusTest.so : BundleFile _build_modbusTest/wp76xx/staging/read-only/lib/libComponent_modbusTest.so
   modeFlags = u+rw+x,g+r+x,o+x+r-w
 
-build $builddir/app/modbusTest/staging/read-only/bin/client : BundleFile $builddir/app/modbusTest/obj/client/client
+build $builddir/app/modbusTest/staging/read-only/bin/test : BundleFile $builddir/app/modbusTest/obj/test/test
   modeFlags = u+rw+x,g+r+x,o+x+r-w
 
-build $builddir/app/modbusTest/staging/info.properties : MakeAppInfoProperties | $builddir/app/modbusTest/staging/read-only/lib/libComponent_modbusTest.so $builddir/app/modbusTest/staging/read-only/bin/client $builddir/app/modbusTest/staging/root.cfg
+build $builddir/app/modbusTest/staging/info.properties : MakeAppInfoProperties | $builddir/app/modbusTest/staging/read-only/lib/libComponent_modbusTest.so $builddir/app/modbusTest/staging/read-only/bin/test $builddir/app/modbusTest/staging/root.cfg
   name = modbusTest
   version = 
   workingDir = $builddir/app/modbusTest

@@ -53,22 +53,23 @@ int validate_ip(const char *ipRef) { //check whether the IP is valid or not
 /**************************************************************************************************************/
 
 modbus_t * 			ctx = NULL;
+
 int					Debug = 0;					// 0: disable, 1: enable
 
 char				Protocol[5] = {0};			// rtu / tcp
-uint8_t				Slave = 0;					// slave ID
+uint8_t				Slave = 1;					// slave ID
 
 uint32_t			Timeout = 1;				// response timeout
 char				Com[50] = {0};				// COM Port
-uint32_t			BitRate = 0;				// 4800 / 9600 / 14400 / 19200 / 38400 / 56000 / 57600 / 115200
-uint8_t 			DataBit = 0;				// 8 / 7
-char 				Parity = 'Z';				// 'O' / 'E' / 'N'
-uint8_t 			StopBit = 0;				// 1 / 2
+uint32_t			BitRate = 9600;				// 4800 / 9600 / 14400 / 19200 / 38400 / 56000 / 57600 / 115200
+uint8_t 			DataBit = 8;				// 8 / 7
+char 				Parity = 'N';				// 'O' / 'E' / 'N'
+uint8_t 			StopBit = 1;				// 1 / 2
 
 char				Ip[16] = {0};				// 000.000.000.000 - max 15 char
-uint16_t			Port = 0;					
+uint16_t			Port = 502;					
 
-uint8_t modbus_SetParameter (const char* name, const char* value)
+int8_t modbus_SetParameter (const char* name, const char* value)
 {
 	if (strcmp (name, "Protocol") == 0 && strlen(value) > 2)
 	{
@@ -130,7 +131,7 @@ uint8_t modbus_SetParameter (const char* name, const char* value)
 	return 0;
 }
 
-uint8_t modbus_GetParameter (const char* name, char* value, size_t valueSize)
+int8_t modbus_GetParameter (const char* name, char* value, size_t valueSize)
 {
 	if (strcmp (name, "Protocol") == 0)
 	{
@@ -184,7 +185,7 @@ uint8_t modbus_GetParameter (const char* name, char* value, size_t valueSize)
 	return 0;
 }
 
-uint8_t modbus_Disconnect ()
+int8_t modbus_Disconnect ()
 {
 	if (ctx != NULL)
 	{
@@ -195,7 +196,7 @@ uint8_t modbus_Disconnect ()
 	return 0;
 }
 
-uint8_t modbus_Connect ()
+int8_t modbus_Connect ()
 {
 	modbus_Disconnect();
 	
@@ -215,7 +216,7 @@ uint8_t modbus_Connect ()
 			BitRate != 115200
 		)
 		{
-			ret = 4;								// Invalid Bit Rate
+			ret = -4;								// Invalid Bit Rate
 		}
 		
 		// Check Data Bit
@@ -224,7 +225,7 @@ uint8_t modbus_Connect ()
 			DataBit != 7
 		)
 		{
-			ret = 5;									// Invalid Data Bit
+			ret = -5;									// Invalid Data Bit
 		}
 		
 		// Check Parity
@@ -234,7 +235,7 @@ uint8_t modbus_Connect ()
 			Parity != 'N'
 		)
 		{
-			ret = 6;								// Invalid Parity
+			ret = -6;								// Invalid Parity
 		}
 		
 		// Check Stop Bit
@@ -243,7 +244,7 @@ uint8_t modbus_Connect ()
 			StopBit != 2
 		)
 		{
-			ret = 7;								// Invalid Stop Bit
+			ret = -7;								// Invalid Stop Bit
 		}
 		
 		// Check COM
@@ -251,7 +252,7 @@ uint8_t modbus_Connect ()
 			strlen(Com) < 3
 		)
 		{
-			ret = 8;								// Invalid COM string
+			ret = -8;								// Invalid COM string
 		}
 		
 		// enough parameter
@@ -275,7 +276,7 @@ uint8_t modbus_Connect ()
 			validate_ip(Ip) == 0
 		)
 		{
-			ret = 2; 								// Invalid IP address
+			ret = -2; 								// Invalid IP address
 		}
 		
 		// Check port range
@@ -283,7 +284,7 @@ uint8_t modbus_Connect ()
 			Port < 1 && Port > 65535
 		)
 		{
-			ret = 3;								// Port out of range
+			ret = -3;								// Port out of range
 		}
 		
 		// enough parameter
@@ -300,32 +301,29 @@ uint8_t modbus_Connect ()
 	}
 	else
 	{
-		ret = 1;									// Empty Protocol
+		ret = -1;									// Empty Protocol
 	}
 	
 	if (ctx != NULL)
 	{
 		modbus_set_debug (ctx, Debug);
-		
 		modbus_set_response_timeout (ctx, Timeout, 0);
-		
 		modbus_set_slave(ctx, Slave);
 		
 		if (
 			modbus_connect (ctx) == -1
 		)
 		{
-			ret = -1;
+			ret = -99;
 			modbus_Disconnect();
 		}
 	}
-	
 	return ret;
 }
 
-uint8_t modbus_Read_Bit (uint16_t address, uint8_t* dest, size_t* destSize)
+int8_t modbus_Read_Bit (uint16_t address, uint8_t* dest, size_t* destSize)
 {
-	uint8_t ret = -9;
+	int8_t ret = -9;
 	if (ctx != NULL)
 	{
 		ret = modbus_read_bits (ctx, address, *destSize, dest);
@@ -333,9 +331,9 @@ uint8_t modbus_Read_Bit (uint16_t address, uint8_t* dest, size_t* destSize)
 	return ret;
 }
 
-uint8_t modbus_Read_InputBit (uint16_t address, uint8_t* dest, size_t* destSize)
+int8_t modbus_Read_InputBit (uint16_t address, uint8_t* dest, size_t* destSize)
 {
-	uint8_t ret = -9;
+	int8_t ret = -9;
 	if (ctx != NULL)
 	{
 		ret = modbus_read_input_bits (ctx, address, *destSize, dest);
@@ -343,9 +341,9 @@ uint8_t modbus_Read_InputBit (uint16_t address, uint8_t* dest, size_t* destSize)
 	return ret;
 }
 
-uint8_t modbus_Read_Word (uint16_t address, uint16_t* dest, size_t* destSize)
+int8_t modbus_Read_Word (uint16_t address, uint16_t* dest, size_t* destSize)
 {
-	uint8_t ret = -9;
+	int8_t ret = -9;
 	if (ctx != NULL)
 	{
 		ret = modbus_read_registers (ctx, address, *destSize, dest);
@@ -353,9 +351,9 @@ uint8_t modbus_Read_Word (uint16_t address, uint16_t* dest, size_t* destSize)
 	return ret;
 }
 
-uint8_t modbus_Read_InputWord (uint16_t address, uint16_t* dest, size_t* destSize)
+int8_t modbus_Read_InputWord (uint16_t address, uint16_t* dest, size_t* destSize)
 {
-	uint8_t ret = -9;
+	int8_t ret = -9;
 	if (ctx != NULL)
 	{
 		ret = modbus_read_input_registers (ctx, address, *destSize, dest);
@@ -363,17 +361,9 @@ uint8_t modbus_Read_InputWord (uint16_t address, uint16_t* dest, size_t* destSiz
 	return ret;
 }
 
-uint8_t modbus_Write_Bit (uint16_t address, const uint8_t* dest, size_t destSize)
+int8_t modbus_Write_Bit (uint16_t address, const uint8_t* dest, size_t destSize)
 {
-	LE_INFO("Write Bit : { address : %d }", address);
-	int i = 0;
-	for (i = 0; i < destSize; i++)
-	{
-		LE_INFO("%d", dest[i]);
-	}
-	return 8;
-	
-	uint8_t ret = -9;
+	int8_t ret = -9;
 	int cnt = 0;
 	if (ctx != NULL)
 	{
@@ -392,9 +382,9 @@ uint8_t modbus_Write_Bit (uint16_t address, const uint8_t* dest, size_t destSize
 	return ret;
 }
 
-uint8_t modbus_Write_Word (uint16_t address, const uint16_t* dest, size_t destSize)
+int8_t modbus_Write_Word (uint16_t address, const uint16_t* dest, size_t destSize)
 {
-	uint8_t ret = -9;
+	int8_t ret = -9;
 	if (ctx != NULL)
 	{
 		ret = modbus_write_registers (ctx, address, destSize, &dest[0]);

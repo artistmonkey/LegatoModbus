@@ -1,0 +1,17 @@
+executables:
+{
+    test = (modbusTest)
+}
+
+processes:
+{
+    run:
+    {
+        (test)
+    }
+}
+
+bindings:
+{
+    test.modbusTest.modbus -> modbuslib.modbus
+}

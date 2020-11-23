@@ -1,50 +1,50 @@
-FUNCTION uint8 SetParameter
+FUNCTION int8 SetParameter
 (
 	string name[100] IN, 				///< parameter name
 	string value[100] IN				///< parameter value
 );
 
-FUNCTION uint8 GetParameter
+FUNCTION int8 GetParameter
 (
 	string name[100] IN,				///< parameter name
 	string value[100] OUT				///< parameter value
 );
 
-FUNCTION uint8 Connect();
+FUNCTION int8 Connect();
 
-FUNCTION uint8 Disconnect();
+FUNCTION int8 Disconnect();
 
-FUNCTION uint8 Read_Bit
-(
+FUNCTION int8 Read_Bit
+(					
 	uint16 address IN,					///< Readable/Writable bit address
 	uint8 dest[128]	OUT					///< value place after read
 );
 
-FUNCTION uint8 Read_InputBit
+FUNCTION int8 Read_InputBit
 (
 	uint16 address IN,					///< Read only bit address
 	uint8 dest[128]	OUT					///< value place after read
 );
 
-FUNCTION uint8 Read_Word
+FUNCTION int8 Read_Word
 (
 	uint16 address IN,					///< Readable/Writable word address
 	uint16 dest[128] OUT				///< value place after read
 );
 
-FUNCTION uint8 Read_InputWord
+FUNCTION int8 Read_InputWord
 (
 	uint16 address IN,					///< Read only word address
 	uint16 dest[128] OUT				///< value place after read
 );
 
-FUNCTION uint8 Write_Bit
+FUNCTION int8 Write_Bit
 (
 	uint16 address IN,					///< Readable/Writable bit address
 	uint8 dest[128]	IN					///< value place after read
 );
 
-FUNCTION uint8 Write_Word
+FUNCTION int8 Write_Word
 (
 	uint16 address IN,					///< Readable/Writable word address
 	uint16 dest[128] IN					///< value place after read

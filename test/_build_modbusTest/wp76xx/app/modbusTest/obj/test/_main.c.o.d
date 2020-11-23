@@ -1,5 +1,5 @@
-_build_modbusTest/wp76xx/app/modbusTest/obj/client/_main.c.o: \
- _build_modbusTest/wp76xx/app/modbusTest/src/client/_main.c \
+_build_modbusTest/wp76xx/app/modbusTest/obj/test/_main.c.o: \
+ _build_modbusTest/wp76xx/app/modbusTest/src/test/_main.c \
  /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/legato.h \
  /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_build_config.h \
  /mnt/d/linux/LEGATO/WorkSpace/leaf-data/fx30/fx30-cat1-legato/framework/include/le_basics.h \

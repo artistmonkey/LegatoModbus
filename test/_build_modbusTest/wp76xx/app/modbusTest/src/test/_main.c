@@ -1,5 +1,5 @@
 
-// Startup code for the executable 'client'.
+// Startup code for the executable 'test'.
 // This is a generated file, do not edit.
 
 #include "legato.h"
@@ -9,11 +9,11 @@
 
 
 // Define IPC API interface names.
-LE_SHARED const char* _modbusTest_modbus_ServiceInstanceName = "client.modbusTest.modbus";
+LE_SHARED const char* _modbusTest_modbus_ServiceInstanceName = "test.modbusTest.modbus";
 
 // Define default component's log session variables.
-LE_SHARED le_log_SessionRef_t client_exe_LogSession;
-LE_SHARED le_log_Level_t* client_exe_LogLevelFilterPtr;
+LE_SHARED le_log_SessionRef_t test_exe_LogSession;
+LE_SHARED le_log_Level_t* test_exe_LogLevelFilterPtr;
 
 // Loads a library using dlopen().
 __attribute__((unused)) static void LoadLib
@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
     // Make stdout line buffered so printf shows up in logs without flushing.
     setlinebuf(stdout);
 
-    client_exe_LogSession = log_RegComponent("client_exe", &client_exe_LogLevelFilterPtr);
+    test_exe_LogSession = log_RegComponent("test_exe", &test_exe_LogLevelFilterPtr);
 
     // Connect to the log control daemon.
     // Note that there are some rare cases where we don't want the

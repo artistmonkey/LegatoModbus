@@ -15,7 +15,7 @@
 
 #include "legato.h"
 
-#define PROTOCOL_ID_STR "42d102297c4411866131c36f7916bca2"
+#define PROTOCOL_ID_STR "98291297fff67f6b55fa1c5496a93200"
 
 #ifdef MK_TOOLS_BUILD
     extern const char** modbus_ServiceInstanceNamePtr;

@@ -549,7 +549,7 @@ void modbus_DisconnectService
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_SetParameter
+int8_t modbus_SetParameter
 (
     const char* LE_NONNULL name,
         ///< [IN] parameter name
@@ -565,7 +565,7 @@ uint8_t modbus_SetParameter
     __attribute__((unused)) uint8_t* _msgBufPtr;
     __attribute__((unused)) size_t _msgBufSize;
 
-    uint8_t _result;
+    int8_t _result;
 
     // Range check values, if appropriate
     if ( strnlen(name, 100) > 100 )
@@ -611,7 +611,7 @@ uint8_t modbus_SetParameter
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Unpack the result first
-    if (!le_pack_UnpackUint8( &_msgBufPtr, &_msgBufSize, &_result ))
+    if (!le_pack_UnpackInt8( &_msgBufPtr, &_msgBufSize, &_result ))
     {
         goto error_unpack;
     }
@@ -634,7 +634,7 @@ error_unpack:
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_GetParameter
+int8_t modbus_GetParameter
 (
     const char* LE_NONNULL name,
         ///< [IN] parameter name
@@ -652,7 +652,7 @@ uint8_t modbus_GetParameter
     __attribute__((unused)) uint8_t* _msgBufPtr;
     __attribute__((unused)) size_t _msgBufSize;
 
-    uint8_t _result;
+    int8_t _result;
 
     // Range check values, if appropriate
     if ( strnlen(name, 100) > 100 )
@@ -699,7 +699,7 @@ uint8_t modbus_GetParameter
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Unpack the result first
-    if (!le_pack_UnpackUint8( &_msgBufPtr, &_msgBufSize, &_result ))
+    if (!le_pack_UnpackInt8( &_msgBufPtr, &_msgBufSize, &_result ))
     {
         goto error_unpack;
     }
@@ -730,7 +730,7 @@ error_unpack:
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Connect
+int8_t modbus_Connect
 (
     void
 )
@@ -743,7 +743,7 @@ uint8_t modbus_Connect
     __attribute__((unused)) uint8_t* _msgBufPtr;
     __attribute__((unused)) size_t _msgBufSize;
 
-    uint8_t _result;
+    int8_t _result;
 
     // Range check values, if appropriate
 
@@ -777,7 +777,7 @@ uint8_t modbus_Connect
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Unpack the result first
-    if (!le_pack_UnpackUint8( &_msgBufPtr, &_msgBufSize, &_result ))
+    if (!le_pack_UnpackInt8( &_msgBufPtr, &_msgBufSize, &_result ))
     {
         goto error_unpack;
     }
@@ -800,7 +800,7 @@ error_unpack:
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Disconnect
+int8_t modbus_Disconnect
 (
     void
 )
@@ -813,7 +813,7 @@ uint8_t modbus_Disconnect
     __attribute__((unused)) uint8_t* _msgBufPtr;
     __attribute__((unused)) size_t _msgBufSize;
 
-    uint8_t _result;
+    int8_t _result;
 
     // Range check values, if appropriate
 
@@ -847,7 +847,7 @@ uint8_t modbus_Disconnect
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Unpack the result first
-    if (!le_pack_UnpackUint8( &_msgBufPtr, &_msgBufSize, &_result ))
+    if (!le_pack_UnpackInt8( &_msgBufPtr, &_msgBufSize, &_result ))
     {
         goto error_unpack;
     }
@@ -870,7 +870,7 @@ error_unpack:
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Read_Bit
+int8_t modbus_Read_Bit
 (
     uint16_t address,
         ///< [IN] Readable/Writable bit address
@@ -888,7 +888,7 @@ uint8_t modbus_Read_Bit
     __attribute__((unused)) uint8_t* _msgBufPtr;
     __attribute__((unused)) size_t _msgBufSize;
 
-    uint8_t _result;
+    int8_t _result;
 
     // Range check values, if appropriate
 
@@ -931,7 +931,7 @@ uint8_t modbus_Read_Bit
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Unpack the result first
-    if (!le_pack_UnpackUint8( &_msgBufPtr, &_msgBufSize, &_result ))
+    if (!le_pack_UnpackInt8( &_msgBufPtr, &_msgBufSize, &_result ))
     {
         goto error_unpack;
     }
@@ -966,7 +966,7 @@ error_unpack:
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Read_InputBit
+int8_t modbus_Read_InputBit
 (
     uint16_t address,
         ///< [IN] Read only bit address
@@ -984,7 +984,7 @@ uint8_t modbus_Read_InputBit
     __attribute__((unused)) uint8_t* _msgBufPtr;
     __attribute__((unused)) size_t _msgBufSize;
 
-    uint8_t _result;
+    int8_t _result;
 
     // Range check values, if appropriate
 
@@ -1027,7 +1027,7 @@ uint8_t modbus_Read_InputBit
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Unpack the result first
-    if (!le_pack_UnpackUint8( &_msgBufPtr, &_msgBufSize, &_result ))
+    if (!le_pack_UnpackInt8( &_msgBufPtr, &_msgBufSize, &_result ))
     {
         goto error_unpack;
     }
@@ -1062,7 +1062,7 @@ error_unpack:
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Read_Word
+int8_t modbus_Read_Word
 (
     uint16_t address,
         ///< [IN] Readable/Writable word address
@@ -1080,7 +1080,7 @@ uint8_t modbus_Read_Word
     __attribute__((unused)) uint8_t* _msgBufPtr;
     __attribute__((unused)) size_t _msgBufSize;
 
-    uint8_t _result;
+    int8_t _result;
 
     // Range check values, if appropriate
 
@@ -1123,7 +1123,7 @@ uint8_t modbus_Read_Word
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Unpack the result first
-    if (!le_pack_UnpackUint8( &_msgBufPtr, &_msgBufSize, &_result ))
+    if (!le_pack_UnpackInt8( &_msgBufPtr, &_msgBufSize, &_result ))
     {
         goto error_unpack;
     }
@@ -1158,7 +1158,7 @@ error_unpack:
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Read_InputWord
+int8_t modbus_Read_InputWord
 (
     uint16_t address,
         ///< [IN] Read only word address
@@ -1176,7 +1176,7 @@ uint8_t modbus_Read_InputWord
     __attribute__((unused)) uint8_t* _msgBufPtr;
     __attribute__((unused)) size_t _msgBufSize;
 
-    uint8_t _result;
+    int8_t _result;
 
     // Range check values, if appropriate
 
@@ -1219,7 +1219,7 @@ uint8_t modbus_Read_InputWord
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Unpack the result first
-    if (!le_pack_UnpackUint8( &_msgBufPtr, &_msgBufSize, &_result ))
+    if (!le_pack_UnpackInt8( &_msgBufPtr, &_msgBufSize, &_result ))
     {
         goto error_unpack;
     }
@@ -1254,7 +1254,7 @@ error_unpack:
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Write_Bit
+int8_t modbus_Write_Bit
 (
     uint16_t address,
         ///< [IN] Readable/Writable bit address
@@ -1272,7 +1272,7 @@ uint8_t modbus_Write_Bit
     __attribute__((unused)) uint8_t* _msgBufPtr;
     __attribute__((unused)) size_t _msgBufSize;
 
-    uint8_t _result;
+    int8_t _result;
 
     // Range check values, if appropriate
     if ( (NULL == destPtr) &&
@@ -1324,7 +1324,7 @@ uint8_t modbus_Write_Bit
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Unpack the result first
-    if (!le_pack_UnpackUint8( &_msgBufPtr, &_msgBufSize, &_result ))
+    if (!le_pack_UnpackInt8( &_msgBufPtr, &_msgBufSize, &_result ))
     {
         goto error_unpack;
     }
@@ -1347,7 +1347,7 @@ error_unpack:
 /**
  */
 //--------------------------------------------------------------------------------------------------
-uint8_t modbus_Write_Word
+int8_t modbus_Write_Word
 (
     uint16_t address,
         ///< [IN] Readable/Writable word address
@@ -1365,7 +1365,7 @@ uint8_t modbus_Write_Word
     __attribute__((unused)) uint8_t* _msgBufPtr;
     __attribute__((unused)) size_t _msgBufSize;
 
-    uint8_t _result;
+    int8_t _result;
 
     // Range check values, if appropriate
     if ( (NULL == destPtr) &&
@@ -1417,7 +1417,7 @@ uint8_t modbus_Write_Word
     _msgBufSize = _MAX_MSG_SIZE;
 
     // Unpack the result first
-    if (!le_pack_UnpackUint8( &_msgBufPtr, &_msgBufSize, &_result ))
+    if (!le_pack_UnpackInt8( &_msgBufPtr, &_msgBufSize, &_result ))
     {
         goto error_unpack;
     }

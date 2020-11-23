@@ -1,0 +1,12 @@
+sources:
+{
+    modbusTest.c
+}
+
+requires:
+{
+    api:
+    {
+        modbus = modbus.api
+    }
+}
