@@ -1,6 +1,5 @@
 #include "legato.h"
 #include "interfaces.h"
-#include <pthread.h>
 
 void modbusTestFunc ()
 {
@@ -69,24 +68,29 @@ int ThreadWait;
 void* threadFunc(void* context)
 {
 	LE_INFO("In Thread..........");
+	modbus_ConnectService();
 	modbusTestFunc ();
 	ThreadWait = 0;
-	pthread_exit(NULL);
+	modbus_DisconnectService();
+	return NULL;
 }
 
 COMPONENT_INIT
 {
 	modbusTestFunc ();
 	
-	LE_INFO("Thread.................");
-	
 	ThreadWait = 1;
 	t = le_thread_Create("threading", threadFunc, NULL);
+	
+	if (t == 0) 
+	{
+		LE_INFO ("Can't create thread");
+		exit(EXIT_SUCCESS);
+	}
+	
 	le_thread_Start(t);
 	
-	while (ThreadWait > 0) 
-	{
-		usleep(50 * 1000);
-	}
+	while ( ThreadWait > 0) { usleep(50 * 1000); }
+	
     exit(EXIT_SUCCESS);
 }
